@@ -1,0 +1,15 @@
+[package]
+edition.workspace = true
+name = "user-model"
+version.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+derive-new.workspace = true
+sqlx.features = ["uuid"]
+sqlx.workspace = true
+uuid.features = ["fast-rng", "v7"]
+uuid.workspace = true
+
+[lints]
+workspace = true
