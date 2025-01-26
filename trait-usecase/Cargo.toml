@@ -1,0 +1,10 @@
+[package]
+edition.workspace = true
+name = "trait-usecase"
+version.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+
+[lints]
+workspace = true
