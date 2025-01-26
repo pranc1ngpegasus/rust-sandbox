@@ -1,0 +1,25 @@
+[package]
+edition.workspace = true
+name = "user-app"
+version.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+derive-new.workspace = true
+envy.workspace = true
+serde.features = ["derive"]
+serde.workspace = true
+sqlx.features = ["postgres", "runtime-tokio", "tls-rustls"]
+sqlx.workspace = true
+tokio.features = ["macros", "net", "rt-multi-thread"]
+tokio.workspace = true
+tonic.workspace = true
+tonic-reflection.workspace = true
+trait-usecase.workspace = true
+user-model.workspace = true
+user-proto.workspace = true
+user-repository.workspace = true
+user-usecase.workspace = true
+
+[lints]
+workspace = true

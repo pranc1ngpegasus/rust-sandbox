@@ -29,7 +29,9 @@
           ];
 
           env = {
+            PORT = "8080";
             DATABASE_URL = "postgresql://postgres:password@localhost:5432/default";
+            READER_DATABASE_URL = "postgresql://postgres:password@localhost:5432/default";
           };
 
           nativeBuildInputs = [toolchain];
