@@ -6,10 +6,13 @@ opt-level = "z"
 strip = true
 
 [workspace]
-members = []
+members = ["trait-repository"]
 resolver = "2"
 
 [workspace.dependencies]
+anyhow = "1.0.95"
+sqlx = "0.8.3"
+trait-repository.path = "trait-repository"
 
 [workspace.lints.clippy]
 all = "warn"

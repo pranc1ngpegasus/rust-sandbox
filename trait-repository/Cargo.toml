@@ -1,0 +1,12 @@
+[package]
+edition.workspace = true
+name = "trait-repository"
+version.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+sqlx.features = ["postgres", "runtime-tokio", "tls-rustls"]
+sqlx.workspace = true
+
+[lints]
+workspace = true
