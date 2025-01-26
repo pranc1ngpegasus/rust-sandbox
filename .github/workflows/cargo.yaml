@@ -46,6 +46,9 @@ jobs:
             ~/.cargo/registry
       - uses: mozilla-actions/sccache-action@v0.0.7
       - uses: rui314/setup-mold@v1
+      - uses: arduino/setup-protoc@v3
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: taiki-e/cache-cargo-install-action@v2
         with:
           tool: sqlx-cli
@@ -90,6 +93,9 @@ jobs:
             ~/.cargo/registry
       - uses: mozilla-actions/sccache-action@v0.0.7
       - uses: rui314/setup-mold@v1
+      - uses: arduino/setup-protoc@v3
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: taiki-e/cache-cargo-install-action@v2
         with:
           tool: sqlx-cli
