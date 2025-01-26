@@ -25,9 +25,12 @@
             mold
             rustup
             sccache
+            sqlx-cli
           ];
 
-          env = {};
+          env = {
+            DATABASE_URL = "postgresql://postgres:password@localhost:5432/default";
+          };
 
           nativeBuildInputs = [toolchain];
 

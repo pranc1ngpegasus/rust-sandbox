@@ -1596,6 +1596,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "user-repository"
+version = "0.0.0"
+dependencies = [
+ "anyhow",
+ "derive-new",
+ "sqlx",
+ "trait-repository",
+ "user-model",
+ "uuid",
+]
+
+[[package]]
 name = "utf16_iter"
 version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"

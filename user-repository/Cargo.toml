@@ -1,0 +1,16 @@
+[package]
+edition.workspace = true
+name = "user-repository"
+version.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+derive-new.workspace = true
+sqlx.features = ["postgres", "runtime-tokio", "tls-rustls", "uuid"]
+sqlx.workspace = true
+trait-repository.workspace = true
+user-model.workspace = true
+uuid.workspace = true
+
+[lints]
+workspace = true
