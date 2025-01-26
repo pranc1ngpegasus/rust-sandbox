@@ -1,0 +1,15 @@
+[package]
+edition.workspace = true
+name = "user-usecase"
+version.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+derive-new.workspace = true
+sqlx.workspace = true
+trait-repository.workspace = true
+trait-usecase.workspace = true
+user-model.workspace = true
+
+[lints]
+workspace = true

@@ -6,7 +6,13 @@ opt-level = "z"
 strip = true
 
 [workspace]
-members = ["trait-repository", "trait-usecase", "user-model", "user-repository"]
+members = [
+  "trait-repository",
+  "trait-usecase",
+  "user-model",
+  "user-repository",
+  "user-usecase",
+]
 resolver = "2"
 
 [workspace.dependencies]
@@ -18,6 +24,7 @@ trait-usecase.path = "trait-usecase"
 user-model.path = "user-model"
 user-proto.path = "user-proto"
 user-repository.path = "user-repository"
+user-usecase.path = "user-usecase"
 uuid = "1.12.1"
 
 [workspace.lints.clippy]
