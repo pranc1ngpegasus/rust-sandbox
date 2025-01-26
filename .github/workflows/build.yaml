@@ -31,9 +31,24 @@ jobs:
         target:
           - aarch64-unknown-linux-musl
           - x86_64-unknown-linux-musl
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: default
+          POSTGRES_USER: postgres
+          POSTGRES_HOST_AUTH_METHOD: trust
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     env:
       SCCACHE_GHA_ENABLED: "true"
       RUSTC_WRAPPER: "sccache"
+      DATABASE_URL: postgres://postgres:password@localhost:5432/default
     steps:
       - uses: actions/checkout@v4
       - uses: actions-rust-lang/setup-rust-toolchain@v1
@@ -46,6 +61,14 @@ jobs:
           target: ${{ matrix.target }}
       - uses: mozilla-actions/sccache-action@v0.0.7
       - uses: rui314/setup-mold@v1
+      - uses: taiki-e/cache-cargo-install-action@v2
+        with:
+          tool: sqlx-cli
+      - run: |
+          for migration in migrations/*; do
+            cargo sqlx migrate run --ignore-missing --source "$migration"
+          done
+          cargo sqlx prepare --workspace
       - uses: mlugg/setup-zig@v1
         with:
           version: latest

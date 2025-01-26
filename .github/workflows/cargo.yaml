@@ -19,16 +19,41 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: default
+          POSTGRES_USER: postgres
+          POSTGRES_HOST_AUTH_METHOD: trust
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: postgres://postgres:password@localhost:5432/default
     steps:
       - uses: actions/checkout@v4
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           cache-directories: |
+            .sqlx
             target
             ~/.cargo/git
             ~/.cargo/registry
       - uses: mozilla-actions/sccache-action@v0.0.7
       - uses: rui314/setup-mold@v1
+      - uses: taiki-e/cache-cargo-install-action@v2
+        with:
+          tool: sqlx-cli
+      - run: |
+          for migration in migrations/*; do
+            cargo sqlx migrate run --ignore-missing --source "$migration"
+          done
+          cargo sqlx prepare --workspace
       - uses: giraffate/clippy-action@v1
         with:
           reporter: 'github-pr-review'
@@ -38,16 +63,41 @@ jobs:
   test:
     timeout-minutes: 30
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: default
+          POSTGRES_USER: postgres
+          POSTGRES_HOST_AUTH_METHOD: trust
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: postgres://postgres:password@localhost:5432/default
     steps:
       - uses: actions/checkout@v4
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           cache-directories: |
+            .sqlx
             target
             ~/.cargo/git
             ~/.cargo/registry
       - uses: mozilla-actions/sccache-action@v0.0.7
       - uses: rui314/setup-mold@v1
+      - uses: taiki-e/cache-cargo-install-action@v2
+        with:
+          tool: sqlx-cli
+      - run: |
+          for migration in migrations/*; do
+            cargo sqlx migrate run --ignore-missing --source "$migration"
+          done
+          cargo sqlx prepare --workspace
       - uses: taiki-e/install-action@nextest
       - run: cargo nextest run --no-tests=pass --all 
   unused:
