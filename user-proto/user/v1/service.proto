@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package user.v1;
+
+import "user/v1/query_users_by_ids.proto";
+
+service UserService {
+  rpc QueryUsersByIds(user.v1.QueryUsersByIdsRequest) returns (user.v1.QueryUsersByIdsResponse);
+}

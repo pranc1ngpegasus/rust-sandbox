@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package user.v1;
+
+import "user/v1/model.proto";
+
+message QueryUsersByIdsRequest {
+  repeated string ids = 1;
+}
+
+message QueryUsersByIdsResponse {
+  repeated user.v1.User users = 1;
+}
