@@ -11,8 +11,8 @@ use user_proto::user::v1::{
 pub struct UserServiceImpl {
     query_users_by_ids_usecase: Arc<
         dyn Usecase<
-            user_usecase::query_users_by_ids::Input,
-            user_usecase::query_users_by_ids::Output,
+            Input = user_usecase::query_users_by_ids::Input,
+            Output = user_usecase::query_users_by_ids::Output,
         >,
     >,
 }

@@ -7,7 +7,10 @@ use user_model::user_id::UserID;
 #[derive(new)]
 pub struct QueryUsersByIDs {}
 
-impl Repository<[UserID], Vec<User>> for QueryUsersByIDs {
+impl Repository for QueryUsersByIDs {
+    type Input = [UserID];
+    type Output = Vec<User>;
+
     fn handle<'a>(
         &'a self,
         conn: &'a mut sqlx::PgConnection,
