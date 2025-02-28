@@ -26,6 +26,7 @@
             rustup
             sccache
             sqlx-cli
+            protobuf
           ];
 
           env = {
