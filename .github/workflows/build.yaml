@@ -59,7 +59,7 @@ jobs:
             ~/.cargo/registry
           cache-key: ${{ matrix.service }}-${{ matrix.target }}
           target: ${{ matrix.target }}
-      - uses: mozilla-actions/sccache-action@v0.0.7
+      - uses: mozilla-actions/sccache-action@v0.0.8
       - uses: rui314/setup-mold@v1
       - uses: arduino/setup-protoc@v3
         with:
