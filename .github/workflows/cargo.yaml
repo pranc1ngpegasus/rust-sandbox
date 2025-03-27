@@ -44,7 +44,7 @@ jobs:
             target
             ~/.cargo/git
             ~/.cargo/registry
-      - uses: mozilla-actions/sccache-action@v0.0.8
+      - uses: mozilla-actions/sccache-action@v0.0.9
       - uses: rui314/setup-mold@v1
       - uses: arduino/setup-protoc@v3
         with:
@@ -91,7 +91,7 @@ jobs:
             target
             ~/.cargo/git
             ~/.cargo/registry
-      - uses: mozilla-actions/sccache-action@v0.0.8
+      - uses: mozilla-actions/sccache-action@v0.0.9
       - uses: rui314/setup-mold@v1
       - uses: arduino/setup-protoc@v3
         with:
