@@ -72,7 +72,7 @@ jobs:
             cargo sqlx migrate run --ignore-missing --source "$migration"
           done
           cargo sqlx prepare --workspace
-      - uses: mlugg/setup-zig@v1
+      - uses: mlugg/setup-zig@v2
         with:
           version: latest
       - uses: taiki-e/install-action@v2
