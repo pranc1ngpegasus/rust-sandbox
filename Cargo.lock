@@ -2155,7 +2155,7 @@ name = "user-proto"
 version = "0.0.0"
 dependencies = [
  "anyhow",
- "prost 0.13.5",
+ "prost 0.14.1",
  "prost-build",
  "prost-types 0.13.5",
  "serde",
