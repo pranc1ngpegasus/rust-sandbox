@@ -2157,7 +2157,7 @@ dependencies = [
  "anyhow",
  "prost 0.14.1",
  "prost-build",
- "prost-types 0.13.5",
+ "prost-types 0.14.1",
  "serde",
  "tonic",
  "tonic-build",
