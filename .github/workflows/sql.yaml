@@ -12,6 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: quarylabs/install-sqruff-cli-action@main
       - run: sqruff lint . --format github-annotation-native
