@@ -36,7 +36,7 @@ user-model.path = "user-model"
 user-proto.path = "user-proto"
 user-repository.path = "user-repository"
 user-usecase.path = "user-usecase"
-uuid = "1.18.1"
+uuid = "1.19.0"
 
 [workspace.lints.clippy]
 all = "warn"
