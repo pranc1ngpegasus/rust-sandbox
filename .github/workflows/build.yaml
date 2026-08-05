@@ -75,7 +75,7 @@ jobs:
       - uses: mlugg/setup-zig@v2
         with:
           version: latest
-      - uses: taiki-e/install-action@v2.85.6
+      - uses: taiki-e/install-action@v2.85.7
         with:
           tool: cargo-zigbuild
       - run: |
